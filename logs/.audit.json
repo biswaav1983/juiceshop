@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 2
+    },
+    "auditLog": "/opt/juice-shop-1/logs/.audit.json",
+    "files": [
+        {
+            "date": 1685535030240,
+            "name": "/opt/juice-shop-1/logs/access.log.2023-05-31",
+            "hash": "c29dbcbe00d697fae5508428ae8baf42"
+        }
+    ]
+}

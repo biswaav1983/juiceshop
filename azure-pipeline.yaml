@@ -1,0 +1,39 @@
+# Node.js
+
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloud'
+      organization: 'avispiku'
+      scannerMode: 'CLI'
+      configMode: 'manual'
+      cliProjectKey: 'juiceshop'
+      cliProjectName: 'juiceshop'
+      cliSources: '.'
+
+ 
+
+  - bash: |
+      node -v
+      npm --version
+      npm install
+    displayName: 'Build Application'
+
+  - task: SonarCloudAnalyze@1
+
+ 
+
+  - task: SonarCloudPublish@1
+    inputs:
+      pollingTimeoutSec: '300'
